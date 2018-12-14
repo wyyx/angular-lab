@@ -1,0 +1,9 @@
+<form [formGroup]="myForm">
+  <mat-form-field>
+    <input #name matInput placeholder="label" value="valueName" formControlName="name">
+    <button matSuffix mat-raised-button (click)="onClick(name)">Click Me</button>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="label" value="valueEmail" formControlName="email">
+  </mat-form-field>
+</form>
