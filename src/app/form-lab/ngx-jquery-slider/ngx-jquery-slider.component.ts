@@ -63,7 +63,7 @@ export class NgxJquerySliderComponent implements ControlValueAccessor {
 
 	setDisabledState?(isDisabled: boolean): void {
 		this.widget.slider({
-			disabled: true
+			disabled: isDisabled
 		})
 	}
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core'
 import { FormControl } from '@angular/forms'
+import { MatSlideToggleChange } from '@angular/material/slide-toggle'
 
 @Component({
 	selector: 'app-ngx-jquery-slider-parent',
@@ -16,10 +17,15 @@ export class NgxJquerySliderParentComponent implements OnInit {
 			console.log('v', v)
 			console.log('touched', this.sliderFormControl.touched)
 		})
+	}
 
-		setTimeout(() => {
-			console.log('slider disabled!')
+	onToggleChange(event: MatSlideToggleChange) {
+		if (event.checked) {
+			console.log('Slider Disabled')
 			this.sliderFormControl.disable()
-		}, 5000)
+		} else {
+			console.log('Slider Enabled')
+			this.sliderFormControl.enable()
+		}
 	}
 }
