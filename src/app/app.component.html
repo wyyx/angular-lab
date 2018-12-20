@@ -9,5 +9,10 @@
       true}">
     form-lab
   </a>
+  <a mat-tab-link [routerLink]="[ '/core-lab' ]" routerLinkActive #rlaCoreLab="routerLinkActive"
+    [active]="rlaCoreLab.isActive" [routerLinkActiveOptions]="{exact:
+    true}">
+    core-lab
+  </a>
 </nav>
 <router-outlet></router-outlet>

@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { AppRoutingModule } from './app-routing.module'
 import { FormLabModule } from './form-lab/form-lab.module'
 import { Router } from '@angular/router'
+import { CoreLabModule } from './core-lab/core-lab.module'
 
 @NgModule({
 	declarations: [ AppComponent ],
@@ -14,6 +15,7 @@ import { Router } from '@angular/router'
 		BrowserModule,
 		SharedModule,
 		FormLabModule,
+		CoreLabModule,
 		BrowserAnimationsModule,
 		AppRoutingModule
 	],

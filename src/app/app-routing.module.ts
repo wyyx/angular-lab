@@ -5,6 +5,7 @@ import { PageNotFoundComponent } from './shared/page-not-found/page-not-found.co
 
 const routes: Routes = [
 	{ path: 'form-lab', redirectTo: '/form-lab', pathMatch: 'full' },
+	{ path: 'core-lab', redirectTo: '/core-lab', pathMatch: 'full' },
 	{ path: '**', component: PageNotFoundComponent }
 ]
 

@@ -1,10 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, DoCheck } from '@angular/core'
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+	selector: 'app-root',
+	templateUrl: './app.component.html',
+	styleUrls: [ './app.component.scss' ]
 })
-export class AppComponent {
-  title = 'angular-lab';
+export class AppComponent implements DoCheck {
+	ngDoCheck(): void {
+		console.log('AppComponent - ngDoCheck')
+	}
+	title = 'angular-lab'
 }
