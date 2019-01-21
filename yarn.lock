@@ -302,6 +302,11 @@
     lodash "^4.17.10"
     to-fast-properties "^2.0.0"
 
+"@ngrx/store@^7.0.0":
+  version "7.0.0"
+  resolved "http://registry.npm.taobao.org/@ngrx/store/download/@ngrx/store-7.0.0.tgz#5472000197c2a388b09afceb2d062cb37b03d334"
+  integrity sha1-VHIAAZfCo4iwmvzrLQYss3sD0zQ=
+
 "@ngtools/webpack@6.2.3":
   version "6.2.3"
   resolved "http://registry.npm.taobao.org/@ngtools/webpack/download/@ngtools/webpack-6.2.3.tgz#88313131079d14f6c7e07940e807bb445db6a0aa"

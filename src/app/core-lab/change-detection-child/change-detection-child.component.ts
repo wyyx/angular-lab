@@ -5,7 +5,8 @@ import {
 	ChangeDetectionStrategy,
 	ChangeDetectorRef,
 	DoCheck,
-	OnChanges
+	OnChanges,
+	AfterViewChecked
 } from '@angular/core'
 import { Observable } from 'rxjs'
 
@@ -15,7 +16,7 @@ import { Observable } from 'rxjs'
 	styleUrls: [ './change-detection-child.component.scss' ],
 	changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ChangeDetectionChildComponent implements OnInit, DoCheck, OnChanges {
+export class ChangeDetectionChildComponent implements OnInit, DoCheck, OnChanges, AfterViewChecked {
 	ngDoCheck(): void {
 		console.log('ChangeDetectionChildComponent - ngDoCheck')
 	}
@@ -24,8 +25,11 @@ export class ChangeDetectionChildComponent implements OnInit, DoCheck, OnChanges
 		console.log('ChangeDetectionChildComponent - ngOnChanges')
 	}
 
-	@Input() data: Observable<any>
+	ngAfterViewChecked(): void {
+		console.log('ChangeDetectionChildComponent - AfterViewChecked')
+	}
 
+	@Input() data: Observable<any>
 	foods: string[] = []
 
 	constructor(private cd: ChangeDetectorRef) {}
@@ -33,7 +37,12 @@ export class ChangeDetectionChildComponent implements OnInit, DoCheck, OnChanges
 	ngOnInit() {
 		this.data.subscribe(food => {
 			this.foods = [ ...this.foods, ...food ]
+
+			// this.cd.markForCheck()
+			// console.log('set mark')
+
 			setTimeout(() => {
+				console.log('set mark')
 				this.cd.markForCheck()
 			}, 5000)
 		})

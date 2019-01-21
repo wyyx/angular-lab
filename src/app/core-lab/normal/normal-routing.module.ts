@@ -1,15 +1,14 @@
 import { NgModule } from '@angular/core'
 import { Routes, RouterModule } from '@angular/router'
-import { CoreLabHomeComponent } from './core-lab-home/core-lab-home.component'
+import { NormalHomeComponent } from './normal-home/normal-home.component'
 
 const routes: Routes = [
   {
     path: 'core-lab',
-    component: CoreLabHomeComponent,
     children: [
       {
-        path: 'lazy',
-        loadChildren: './lazy/lazy.module#LazyModule'
+        path: 'normal',
+        component: NormalHomeComponent
       }
     ]
   }
@@ -19,4 +18,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class CoreLabRoutingModule {}
+export class NormalRoutingModule {}

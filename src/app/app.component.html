@@ -1,18 +1,48 @@
 <nav mat-tab-nav-bar>
-  <a mat-tab-link [routerLink]="[ '/' ]" routerLinkActive #rlaHome="routerLinkActive" [active]="rlaHome.isActive"
-    [routerLinkActiveOptions]="{exact:
+  <a mat-tab-link
+     [routerLink]="[ '/' ]"
+     routerLinkActive
+     #rlaHome="routerLinkActive"
+     [active]="rlaHome.isActive"
+     [routerLinkActiveOptions]="{exact:
     true}">
     home
   </a>
-  <a mat-tab-link [routerLink]="[ '/form-lab' ]" routerLinkActive #rlaReactiveFormLab="routerLinkActive"
-    [active]="rlaReactiveFormLab.isActive" [routerLinkActiveOptions]="{exact:
+  <a mat-tab-link
+     [routerLink]="[ '/form-lab' ]"
+     routerLinkActive
+     #rlaReactiveFormLab="routerLinkActive"
+     [active]="rlaReactiveFormLab.isActive"
+     [routerLinkActiveOptions]="{exact:
       true}">
     form-lab
   </a>
-  <a mat-tab-link [routerLink]="[ '/core-lab' ]" routerLinkActive #rlaCoreLab="routerLinkActive"
-    [active]="rlaCoreLab.isActive" [routerLinkActiveOptions]="{exact:
+  <a mat-tab-link
+     [routerLink]="[ '/core-lab' ]"
+     routerLinkActive
+     #rlaCoreLab="routerLinkActive"
+     [active]="rlaCoreLab.isActive"
+     [routerLinkActiveOptions]="{exact:
     true}">
     core-lab
+  </a>
+  <a mat-tab-link
+     [routerLink]="[ '/ngrx-lab' ]"
+     routerLinkActive
+     #rlaNgrxlab="routerLinkActive"
+     [active]="rlaNgrxlab.isActive"
+     [routerLinkActiveOptions]="{exact:
+  true}">
+    ngrx-lab
+  </a>
+  <a mat-tab-link
+     [routerLink]="[ '/data-table-lab' ]"
+     routerLinkActive
+     #rlaDataTablelab="routerLinkActive"
+     [active]="rlaDataTablelab.isActive"
+     [routerLinkActiveOptions]="{exact:
+true}">
+    data-table
   </a>
 </nav>
 <router-outlet></router-outlet>

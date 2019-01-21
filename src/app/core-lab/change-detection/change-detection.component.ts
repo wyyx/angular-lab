@@ -1,4 +1,4 @@
-import { Component, OnInit, DoCheck } from '@angular/core'
+import { Component, OnInit, DoCheck, ChangeDetectionStrategy } from '@angular/core'
 import { BehaviorSubject } from 'rxjs'
 
 @Component({
