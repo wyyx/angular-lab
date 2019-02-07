@@ -44,5 +44,23 @@
 true}">
     data-table
   </a>
+  <a mat-tab-link
+     [routerLink]="[ '/cdk-lab' ]"
+     routerLinkActive
+     #rlaCdklab="routerLinkActive"
+     [active]="rlaCdklab.isActive"
+     [routerLinkActiveOptions]="{exact:
+true}">
+    cdk-lab
+  </a>
+  <a mat-tab-link
+     [routerLink]="[ '/third-party-lab' ]"
+     routerLinkActive
+     #rlaThirdPartylab="routerLinkActive"
+     [active]="rlaThirdPartylab.isActive"
+     [routerLinkActiveOptions]="{exact:
+true}">
+    third-party-lab
+  </a>
 </nav>
 <router-outlet></router-outlet>

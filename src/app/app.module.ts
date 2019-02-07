@@ -8,8 +8,10 @@ import { FormLabModule } from './form-lab/form-lab.module'
 import { CoreLabModule } from './core-lab/core-lab.module'
 import { NgrxLabModule } from './ngrx-lab/ngrx-lab.module'
 import { StoreModule } from '@ngrx/store'
-import { DataTableLabModule } from './data-table-lab/data-table-lab.module'
 import { Router } from '@angular/router'
+import { TableLabModule } from './table-lab/table-lab.module'
+import { CdkLabModule } from './cdk-lab/cdk-lab.module'
+import { ThirdPartyLabModule } from './third-party/third-party-lab.module'
 
 @NgModule({
   declarations: [AppComponent],
@@ -19,7 +21,9 @@ import { Router } from '@angular/router'
     FormLabModule,
     CoreLabModule,
     NgrxLabModule,
-    DataTableLabModule,
+    TableLabModule,
+    CdkLabModule,
+    ThirdPartyLabModule,
     AppRoutingModule
   ],
   providers: [],

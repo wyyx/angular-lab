@@ -3,14 +3,15 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --port 4208",
+    "start": "ng serve --port 4207",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "ng-server": "ng serve --port 4208 --proxy-config proxy.conf.json",
-    "server": "json-server ./mock/db.json --watch --routes routes.json",
-    "dev": "concurrently \"npm run ng-server\" \"npm run server\""
+    "ng-server": "ng serve --port 4207 --proxy-config proxy.conf.json",
+    "server": "json-server ./mock/db.json --watch --routes routes.json --port 3004",
+    "dev": "concurrently \"npm run ng-server\" \"npm run server\"",
+    "validate-typescript": "tsc -w --noEmit"
   },
   "private": true,
   "dependencies": {
