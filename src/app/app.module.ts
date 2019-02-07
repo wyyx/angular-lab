@@ -11,7 +11,7 @@ import { StoreModule } from '@ngrx/store'
 import { Router } from '@angular/router'
 import { TableLabModule } from './table-lab/table-lab.module'
 import { CdkLabModule } from './cdk-lab/cdk-lab.module'
-import { ThirdPartyLabModule } from './third-party/third-party-lab.module'
+import { ThirdPartyLabModule } from './third-party-lab/third-party-lab.module'
 
 @NgModule({
   declarations: [AppComponent],
