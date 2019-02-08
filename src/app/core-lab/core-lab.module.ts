@@ -11,6 +11,11 @@ import { ChildComponent } from './child/child.component'
 import { ChangeDetectionGrandchildComponent } from './change-detection-grandchild/change-detection-grandchild.component'
 import { CoreLabHomeComponent } from './core-lab-home/core-lab-home.component'
 import { NormalModule } from './normal/normal.module'
+import { NgTemplateComponent } from './ng-template/ng-template.component'
+import { NgTemplateOutletComponent } from './ng-template-outlet/ng-template-outlet.component'
+import { CardOrListViewComponent } from './ng-template-outlet/card-or-list-view/card-or-list-view.component'
+import { CardItemDirective } from './ng-template-outlet/card-item.directive'
+import { ListItemDirective } from './ng-template-outlet/list-item.directive'
 
 @NgModule({
   imports: [CommonModule, CoreLabRoutingModule, SharedModule, NormalModule],
@@ -21,7 +26,12 @@ import { NormalModule } from './normal/normal.module'
     ExpressionChangedAfterCheckedErrorComponent,
     ExpressionChangedAfterCheckedErrorTwoComponent,
     ChangeDetectionGrandchildComponent,
-    CoreLabHomeComponent
+    CoreLabHomeComponent,
+    NgTemplateComponent,
+    CardOrListViewComponent,
+    NgTemplateOutletComponent,
+    CardItemDirective,
+    ListItemDirective
   ]
 })
 export class CoreLabModule {}
