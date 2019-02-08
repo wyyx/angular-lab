@@ -143,11 +143,11 @@ export class AngularCalendarComponent implements OnInit {
     this.modal.open(this.modalContent, { size: 'lg' })
   }
 
-  addEvent(): void {
+  addEvent(date: Date): void {
     this.events.push({
       title: 'New event',
-      start: startOfDay(new Date()),
-      end: endOfDay(new Date()),
+      start: startOfDay(date || new Date()),
+      end: endOfDay(date || new Date()),
       color: colors.red,
       draggable: true,
       resizable: {

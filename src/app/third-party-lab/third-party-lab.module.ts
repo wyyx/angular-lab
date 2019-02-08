@@ -1,14 +1,14 @@
-import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
+import { NgModule } from '@angular/core'
 import { FormsModule } from '@angular/forms'
-import { FlatpickrModule } from 'angularx-flatpickr'
-import { CalendarModule, DateAdapter } from 'angular-calendar'
-import { adapterFactory } from 'angular-calendar/date-adapters/date-fns'
 import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap'
-import { ThirdPartyLabRoutingModule } from './third-party-lab-routing.module'
-import { ThirdPartyLabHomeComponent } from './third-party-lab-home/third-party-lab-home.component'
+import { CalendarModule } from 'angular-calendar'
+import { FlatpickrModule } from 'angularx-flatpickr'
+import { ContextMenuModule } from 'ngx-contextmenu'
 import { AngularCalendarComponent } from './angular-calendar/angular-calendar.component'
 import { BootstrapComponent } from './bootstrap/bootstrap.component'
+import { ThirdPartyLabHomeComponent } from './third-party-lab-home/third-party-lab-home.component'
+import { ThirdPartyLabRoutingModule } from './third-party-lab-routing.module'
 
 @NgModule({
   imports: [
@@ -16,11 +16,9 @@ import { BootstrapComponent } from './bootstrap/bootstrap.component'
     FormsModule,
     ThirdPartyLabRoutingModule,
     NgbModalModule,
-    FlatpickrModule.forRoot(),
-    CalendarModule.forRoot({
-      provide: DateAdapter,
-      useFactory: adapterFactory
-    })
+    FlatpickrModule,
+    CalendarModule,
+    ContextMenuModule
   ],
   declarations: [ThirdPartyLabHomeComponent, AngularCalendarComponent, BootstrapComponent]
 })

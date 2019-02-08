@@ -12,6 +12,10 @@ import { Router } from '@angular/router'
 import { TableLabModule } from './table-lab/table-lab.module'
 import { CdkLabModule } from './cdk-lab/cdk-lab.module'
 import { ThirdPartyLabModule } from './third-party-lab/third-party-lab.module'
+import { FlatpickrModule } from 'angularx-flatpickr'
+import { CalendarModule, DateAdapter } from 'angular-calendar'
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns'
+import { ContextMenuModule } from 'ngx-contextmenu'
 
 @NgModule({
   declarations: [AppComponent],
@@ -23,6 +27,14 @@ import { ThirdPartyLabModule } from './third-party-lab/third-party-lab.module'
     NgrxLabModule,
     TableLabModule,
     CdkLabModule,
+    FlatpickrModule.forRoot(),
+    CalendarModule.forRoot({
+      provide: DateAdapter,
+      useFactory: adapterFactory
+    }),
+    ContextMenuModule.forRoot({
+      useBootstrap4: true
+    }),
     ThirdPartyLabModule,
     AppRoutingModule
   ],
