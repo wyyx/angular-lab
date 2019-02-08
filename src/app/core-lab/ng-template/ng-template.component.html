@@ -1,9 +1,30 @@
+<!-- Create view in component -->
 <ng-template #template
              let-name="nameFromContext"
              let-age="ageFromContext">
+  <h5>Person info</h5>
   <span>name:{{name}}, </span> <span>age:{{age}}</span>
+  <hr>
 </ng-template>
 
 <ng-container #container>
-  <h3>Person info</h3>
 </ng-container>
+
+<!-- Create view by ngTemplateOutlet directive form 1 -->
+<ng-container *ngTemplateOutlet="template; context: {
+  nameFromContext: 'Houdini',
+  ageFromContext: 66
+}">
+</ng-container>
+
+<!-- Create view by ngTemplateOutlet directive form 2 -->
+<ng-container [ngTemplateOutlet]="template"
+              [ngTemplateOutletContext]="{
+                nameFromContext: 'Maya',
+                ageFromContext: 55
+              }">
+</ng-container>
+
+
+<!-- What can ngTemplateOutlet do? -->
+<app-ng-template-outlet></app-ng-template-outlet>
