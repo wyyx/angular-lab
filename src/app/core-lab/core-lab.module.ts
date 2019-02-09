@@ -16,6 +16,8 @@ import { NgTemplateOutletComponent } from './ng-template/ng-template-outlet/ng-t
 import { CardOrListViewComponent } from './ng-template/ng-template-outlet/card-or-list-view/card-or-list-view.component'
 import { CardItemDirective } from './ng-template/ng-template-outlet/card-item.directive'
 import { ListItemDirective } from './ng-template/ng-template-outlet/list-item.directive'
+import { DirectiveComponent } from './directive/directive.component'
+import { fooDirective } from './directive/foo.directive'
 
 @NgModule({
   imports: [CommonModule, CoreLabRoutingModule, SharedModule, NormalModule],
@@ -31,7 +33,9 @@ import { ListItemDirective } from './ng-template/ng-template-outlet/list-item.di
     CardOrListViewComponent,
     NgTemplateOutletComponent,
     CardItemDirective,
-    ListItemDirective
+    ListItemDirective,
+    DirectiveComponent,
+    fooDirective
   ]
 })
 export class CoreLabModule {}
