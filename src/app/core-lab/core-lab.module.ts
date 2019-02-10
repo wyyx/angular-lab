@@ -16,9 +16,13 @@ import { NgTemplateOutletComponent } from './ng-template/ng-template-outlet/ng-t
 import { CardOrListViewComponent } from './ng-template/ng-template-outlet/card-or-list-view/card-or-list-view.component'
 import { CardItemDirective } from './ng-template/ng-template-outlet/card-item.directive'
 import { ListItemDirective } from './ng-template/ng-template-outlet/list-item.directive'
-import { DirectiveComponent } from './directive/directive.component'
 import { fooDirective } from './directive/foo.directive'
-
+import { DirectiveParentComponent } from './directive/directive-parent.component'
+import { DirectiveChildComponent } from './directive/directive-child.component';
+import { ViewEncapsulationParentComponent } from './view-encapsulation/view-encapsulation-parent/view-encapsulation-parent.component';
+import { ViewEncapsulationUncleComponent } from './view-encapsulation/view-encapsulation-uncle/view-encapsulation-uncle.component';
+import { ViewEncapsulationChildComponent } from './view-encapsulation/view-encapsulation-parent/view-encapsulation-child/view-encapsulation-child.component';
+import { ViewEncapsulationChild2Component } from './view-encapsulation/view-encapsulation-parent/view-encapsulation-child2/view-encapsulation-child2.component'
 @NgModule({
   imports: [CommonModule, CoreLabRoutingModule, SharedModule, NormalModule],
   declarations: [
@@ -34,8 +38,13 @@ import { fooDirective } from './directive/foo.directive'
     NgTemplateOutletComponent,
     CardItemDirective,
     ListItemDirective,
-    DirectiveComponent,
-    fooDirective
+    fooDirective,
+    DirectiveParentComponent,
+    DirectiveChildComponent,
+    ViewEncapsulationParentComponent,
+    ViewEncapsulationUncleComponent,
+    ViewEncapsulationChildComponent,
+    ViewEncapsulationChild2Component
   ]
 })
 export class CoreLabModule {}
