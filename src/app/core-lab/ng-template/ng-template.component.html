@@ -1,4 +1,4 @@
-<!-- Create view in component -->
+<!-- Create view in manually -->
 <ng-template #template
              let-name="nameFromContext"
              let-age="ageFromContext">
@@ -25,6 +25,21 @@
               }">
 </ng-container>
 
+<!-- Create view by ngTemplateOutlet in a div -->
+<div [ngTemplateOutlet]="template"
+     [ngTemplateOutletContext]="{
+  nameFromContext: 'Cinema4d',
+  ageFromContext: 17
+}"></div>
 
-<!-- What can ngTemplateOutlet do? -->
+
+<!-- What we can achieve from ngTemplateOutlet do -->
 <app-ng-template-outlet></app-ng-template-outlet>
+
+
+<!-- Create host view manually -->
+<app-dynamic></app-dynamic>
+
+
+<!-- Create host view by ngComponentOutlet -->
+<app-ng-component-outlet></app-ng-component-outlet>

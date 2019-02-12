@@ -18,11 +18,14 @@ import { CardItemDirective } from './ng-template/ng-template-outlet/card-item.di
 import { ListItemDirective } from './ng-template/ng-template-outlet/list-item.directive'
 import { fooDirective } from './directive/foo.directive'
 import { DirectiveParentComponent } from './directive/directive-parent.component'
-import { DirectiveChildComponent } from './directive/directive-child.component';
-import { ViewEncapsulationParentComponent } from './view-encapsulation/view-encapsulation-parent/view-encapsulation-parent.component';
-import { ViewEncapsulationUncleComponent } from './view-encapsulation/view-encapsulation-uncle/view-encapsulation-uncle.component';
-import { ViewEncapsulationChildComponent } from './view-encapsulation/view-encapsulation-parent/view-encapsulation-child/view-encapsulation-child.component';
+import { DirectiveChildComponent } from './directive/directive-child.component'
+import { ViewEncapsulationParentComponent } from './view-encapsulation/view-encapsulation-parent/view-encapsulation-parent.component'
+import { ViewEncapsulationUncleComponent } from './view-encapsulation/view-encapsulation-uncle/view-encapsulation-uncle.component'
+import { ViewEncapsulationChildComponent } from './view-encapsulation/view-encapsulation-parent/view-encapsulation-child/view-encapsulation-child.component'
 import { ViewEncapsulationChild2Component } from './view-encapsulation/view-encapsulation-parent/view-encapsulation-child2/view-encapsulation-child2.component'
+import { HelloWorldComponent } from './ng-template/hello-world/hello-world.component'
+import { DynamicComponent } from './ng-template/dynamic/dynamic.component'
+import { NgComponentOutletComponent } from './ng-template/ng-component-outlet/ng-component-outlet.component'
 @NgModule({
   imports: [CommonModule, CoreLabRoutingModule, SharedModule, NormalModule],
   declarations: [
@@ -44,7 +47,11 @@ import { ViewEncapsulationChild2Component } from './view-encapsulation/view-enca
     ViewEncapsulationParentComponent,
     ViewEncapsulationUncleComponent,
     ViewEncapsulationChildComponent,
-    ViewEncapsulationChild2Component
-  ]
+    ViewEncapsulationChild2Component,
+    DynamicComponent,
+    HelloWorldComponent,
+    NgComponentOutletComponent
+  ],
+  entryComponents: [HelloWorldComponent]
 })
 export class CoreLabModule {}

@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core'
-import { FilePreviewOverlayService } from '../file-preview-overlay.service'
-import { FilePreviewOverlayRef } from '../file-preview-overlay-ref'
-import { STATIC_FILE_DATE } from '../data'
+import { FilePreviewDialogService } from '../file-preview-dialog.service'
 
 @Component({
   selector: 'app-cdk-lab-home',
@@ -9,15 +7,7 @@ import { STATIC_FILE_DATE } from '../data'
   styleUrls: ['./cdk-lab-home.component.scss']
 })
 export class CdkLabHomeComponent implements OnInit {
-  files = STATIC_FILE_DATE
-
-  constructor(private previewDialog: FilePreviewOverlayService) {}
+  constructor() {}
 
   ngOnInit(): void {}
-
-  showPreview(file) {
-    let dialogRef: FilePreviewOverlayRef = this.previewDialog.open({
-      image: file
-    })
-  }
 }

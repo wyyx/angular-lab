@@ -1,6 +1,6 @@
 import { OverlayRef } from '@angular/cdk/overlay'
 
-export class FilePreviewOverlayRef {
+export class FilePreviewDialogRef {
   constructor(private overlayRef: OverlayRef) {}
 
   close(): void {

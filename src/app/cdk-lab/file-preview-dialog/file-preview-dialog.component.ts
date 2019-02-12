@@ -1,12 +1,12 @@
 import { Component, Input, Inject } from '@angular/core'
-import { FilePreviewOverlayRef } from '../file-preview-overlay-ref'
-import { FILE_PREVIEW_DIALOG_DATA } from '../file-preview-overlay-tokens'
+import { FilePreviewDialogRef } from '../file-preview-dialog-ref'
+import { FILE_PREVIEW_DIALOG_DATA } from '../file-preview-dialog-tokens'
 
 @Component({
-  selector: 'app-file-preview-overlay',
+  selector: 'app-file-preview-dialog',
   template: `
     <div class="overlay-content">
-      <img [src]="image.url" />
+      <img [src]="data?.file?.url" />
     </div>
   `,
   styles: [
@@ -34,9 +34,10 @@ import { FILE_PREVIEW_DIALOG_DATA } from '../file-preview-overlay-tokens'
     `
   ]
 })
-export class FilePreviewOverlayComponent {
+export class FilePreviewDialogComponent {
   constructor(
-    public dialogRef: FilePreviewOverlayRef,
-    @Inject(FILE_PREVIEW_DIALOG_DATA) public image: any
+    public dialogRef: FilePreviewDialogRef,
+    @Inject(FILE_PREVIEW_DIALOG_DATA)
+    public data
   ) {}
 }

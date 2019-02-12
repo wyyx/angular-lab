@@ -2,14 +2,15 @@ import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
 import { CdkLabHomeComponent } from './cdk-lab-home/cdk-lab-home.component'
 import { CdkLabRoutingModule } from './cdk-lab-routing.module'
-import { FilePreviewOverlayComponent } from './file-preview-overlay/file-preview-overlay.component'
 import { SharedModule } from '../shared/shared.module'
-import { FilePreviewOverlayService } from './file-preview-overlay.service'
+import { FilePreviewDialogService } from './file-preview-dialog.service'
+import { OverlayComponent } from './overlay/overlay.component'
+import { FilePreviewDialogComponent } from './file-preview-dialog/file-preview-dialog.component'
 
 @NgModule({
   imports: [CommonModule, CdkLabRoutingModule, SharedModule],
-  declarations: [CdkLabHomeComponent, FilePreviewOverlayComponent],
-  providers: [FilePreviewOverlayService],
-  entryComponents: [FilePreviewOverlayComponent]
+  declarations: [CdkLabHomeComponent, FilePreviewDialogComponent, OverlayComponent],
+  providers: [FilePreviewDialogService],
+  entryComponents: [FilePreviewDialogComponent]
 })
 export class CdkLabModule {}
