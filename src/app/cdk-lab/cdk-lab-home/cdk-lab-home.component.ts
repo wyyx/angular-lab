@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core'
-import { FilePreviewDialogService } from '../file-preview-dialog.service'
+import { FilePreviewDialogService } from '../overlay/file-preview-dialog.service'
 
 @Component({
   selector: 'app-cdk-lab-home',
