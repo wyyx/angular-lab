@@ -4,9 +4,51 @@ import { FilePreviewDialogComponent } from './file-preview-dialog/file-preview-d
 import { filter, take } from 'rxjs/operators'
 
 export class FilePreviewDialogRef {
+  private _beforeClose = new Subject<void>()
+  private _afterClosed = new Subject<void>()
+
+  dialogInstance: FilePreviewDialogComponent
+
   constructor(private overlayRef: OverlayRef) {}
 
   close(): void {
-    this.overlayRef.dispose()
+    this.dialogInstance.animationPhaseChanged
+      .pipe(
+        filter(event => event.phaseName === 'start'),
+        take(1)
+      )
+      .subscribe(() => {
+        console.log('start')
+        this._beforeClose.next()
+        this._beforeClose.complete()
+
+        // Start dispose backdrop when exit animation starts
+        this.overlayRef.detachBackdrop()
+      })
+
+    this.dialogInstance.animationPhaseChanged
+      .pipe(
+        filter(event => event.phaseName === 'done' && event.toState === 'leave'),
+        take(1)
+      )
+      .subscribe(() => {
+        // Start dispose backdrop when exit animation ends
+        this.overlayRef.dispose()
+        this._afterClosed.next()
+        this._afterClosed.complete()
+
+        this.dialogInstance = null!
+      })
+
+    //  Start exit animation of image
+    this.dialogInstance.startExitAnimation()
+  }
+
+  afterClosed(): Observable<void> {
+    return this._afterClosed.asObservable()
+  }
+
+  beforeClose(): Observable<void> {
+    return this._beforeClose.asObservable()
   }
 }

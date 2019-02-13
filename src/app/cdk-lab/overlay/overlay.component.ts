@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core'
 import { STATIC_FILE_DATE } from './data'
-import { FilePreviewDialogService } from './file-preview-dialog.service'
 import { FilePreviewDialogRef } from './file-preview-dialog-ref'
-import { FilePreviewDialogComponent } from './file-preview-dialog/file-preview-dialog.component'
+import { FilePreviewDialogService } from './file-preview-dialog.service'
 
 @Component({
   selector: 'app-overlay',
@@ -17,7 +16,7 @@ export class OverlayComponent implements OnInit {
   ngOnInit(): void {}
 
   showPreview(file: { name: string; url: string }) {
-    const dialogRef: FilePreviewDialogRef = this.previewDialog.open(FilePreviewDialogComponent, {
+    const dialogRef: FilePreviewDialogRef = this.previewDialog.open({
       backdropClass: 'file-preview-backdrop',
       data: { file }
     })

@@ -31,7 +31,7 @@ const ANIMATION_TIMINGS = '400ms cubic-bezier(0.25, 0.8, 0.25, 1)'
 export class FilePreviewDialogComponent {
   loading = true
   animationState: 'void' | 'enter' | 'leave' = 'enter'
-  animationStateChanged = new EventEmitter<AnimationEvent>()
+  animationPhaseChanged = new EventEmitter<AnimationEvent>()
 
   constructor(
     public dialogRef: FilePreviewDialogRef,
@@ -51,11 +51,14 @@ export class FilePreviewDialogComponent {
   }
 
   onAnimationStart(event: AnimationEvent) {
-    this.animationStateChanged.emit(event)
+    console.log('onAnimationStart')
+
+    this.animationPhaseChanged.emit(event)
   }
 
   onAnimationDone(event: AnimationEvent) {
-    this.animationStateChanged.emit(event)
+    console.log('onAnimationDone')
+    this.animationPhaseChanged.emit(event)
   }
 
   startExitAnimation() {

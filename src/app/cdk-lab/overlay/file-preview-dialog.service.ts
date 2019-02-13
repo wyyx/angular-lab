@@ -5,6 +5,7 @@ import { FilePreviewDialogRef } from './file-preview-dialog-ref'
 import { FILE_PREVIEW_DIALOG_DATA } from './file-preview-dialog-tokens'
 import { Router, Event, NavigationStart } from '@angular/router'
 import { filter, tap } from 'rxjs/operators'
+import { FilePreviewDialogComponent } from './file-preview-dialog/file-preview-dialog.component'
 
 export interface FilePreviewDialogConfig {
   panelClass?: string
@@ -27,10 +28,7 @@ const DEFAULT_CONFIG: FilePreviewDialogConfig = {
 export class FilePreviewDialogService {
   constructor(private injector: Injector, private overlay: Overlay, private router: Router) {}
 
-  open<T>(
-    componentOrTemplateRef: ComponentType<T> | TemplateRef<T>,
-    config: FilePreviewDialogConfig = {}
-  ) {
+  open(config: FilePreviewDialogConfig = {}) {
     // Override default configuration
     const dialogConfig = { ...DEFAULT_CONFIG, ...config }
 
@@ -41,7 +39,8 @@ export class FilePreviewDialogService {
     const dialogRef = new FilePreviewDialogRef(overlayRef)
 
     // Attach the portal of FilePreviewDialogComponent to portalHost
-    this.attachDialogToOverlay(overlayRef, componentOrTemplateRef, dialogRef, dialogConfig)
+    const dialogInstance = this.attachDialogToOverlay(overlayRef, dialogRef, dialogConfig)
+    dialogRef.dialogInstance = dialogInstance
 
     // Close dialog when click backdrop or navigate
     overlayRef.backdropClick().subscribe(_ => dialogRef.close())
@@ -78,25 +77,17 @@ export class FilePreviewDialogService {
     return overlayConfig
   }
 
-  private attachDialogToOverlay<T>(
+  private attachDialogToOverlay(
     overlayRef: OverlayRef,
-    componentOrTemplateRef: ComponentType<T> | TemplateRef<T>,
     dialogRef: FilePreviewDialogRef,
     config: FilePreviewDialogConfig
   ) {
-    let portal: TemplatePortal | ComponentPortal<T>
-    if (componentOrTemplateRef instanceof TemplateRef) {
-      portal = new TemplatePortal(componentOrTemplateRef, null, <any>{
-        $implicit: { ...config.data },
-        dialogRef
-      })
-    } else {
-      // Set injector with dialogRef and dialogData
-      const injector = this.createInjector(config, dialogRef)
-      portal = new ComponentPortal(componentOrTemplateRef, null, injector)
-    }
+    // Set injector with dialogRef and dialogData
+    const injector = this.createInjector(config, dialogRef)
+    const portal = new ComponentPortal(FilePreviewDialogComponent, null, injector)
 
-    overlayRef.attach(portal)
+    const componentRef = overlayRef.attach(portal)
+    return componentRef.instance
   }
 
   private createInjector(
