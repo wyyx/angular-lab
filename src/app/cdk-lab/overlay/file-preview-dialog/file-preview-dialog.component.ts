@@ -46,18 +46,18 @@ export class FilePreviewDialogComponent {
     }
   }
 
-  onLoad() {
+  onLoadFinished() {
     this.loading = false
   }
 
   onAnimationStart(event: AnimationEvent) {
-    console.log('onAnimationStart')
+    // console.log('onAnimationStart')
 
     this.animationPhaseChanged.emit(event)
   }
 
   onAnimationDone(event: AnimationEvent) {
-    console.log('onAnimationDone')
+    // console.log('onAnimationDone')
     this.animationPhaseChanged.emit(event)
   }
 

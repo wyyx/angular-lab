@@ -18,11 +18,10 @@ export class FilePreviewDialogRef {
         take(1)
       )
       .subscribe(() => {
-        console.log('start')
         this._beforeClose.next()
         this._beforeClose.complete()
 
-        // Start dispose backdrop when exit animation starts
+        // Only start dispose backdrop when exit animation starts
         this.overlayRef.detachBackdrop()
       })
 
@@ -32,7 +31,7 @@ export class FilePreviewDialogRef {
         take(1)
       )
       .subscribe(() => {
-        // Start dispose backdrop when exit animation ends
+        // Start full dispose when exit animation ends
         this.overlayRef.dispose()
         this._afterClosed.next()
         this._afterClosed.complete()

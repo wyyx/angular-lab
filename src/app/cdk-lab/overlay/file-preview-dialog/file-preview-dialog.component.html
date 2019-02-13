@@ -1,3 +1,7 @@
+<app-file-preview-dialog-toolbar>
+  <mat-icon>description</mat-icon>
+  {{ data?.file?.name }}
+</app-file-preview-dialog-toolbar>
 <div class="overlay-content"
      [@slideContent]="animationState"
      (@slideContent.start)="onAnimationStart($event)"
@@ -8,5 +12,5 @@
   </div>
   <img [@fade]="loading ? 'fadeOut' : 'fadeIn'"
        [src]="data?.file?.url"
-       (load)="onLoad($event)" />
+       (load)="onLoadFinished($event)" />
 </div>
