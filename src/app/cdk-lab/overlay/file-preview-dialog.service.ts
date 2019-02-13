@@ -3,6 +3,8 @@ import { ComponentPortal, ComponentType, PortalInjector, TemplatePortal } from '
 import { Injectable, Injector, TemplateRef } from '@angular/core'
 import { FilePreviewDialogRef } from './file-preview-dialog-ref'
 import { FILE_PREVIEW_DIALOG_DATA } from './file-preview-dialog-tokens'
+import { Router, Event, NavigationStart } from '@angular/router'
+import { filter, tap } from 'rxjs/operators'
 
 export interface FilePreviewDialogConfig {
   panelClass?: string
@@ -23,7 +25,7 @@ const DEFAULT_CONFIG: FilePreviewDialogConfig = {
 
 @Injectable()
 export class FilePreviewDialogService {
-  constructor(private injector: Injector, private overlay: Overlay) {}
+  constructor(private injector: Injector, private overlay: Overlay, private router: Router) {}
 
   open<T>(
     componentOrTemplateRef: ComponentType<T> | TemplateRef<T>,
@@ -41,8 +43,14 @@ export class FilePreviewDialogService {
     // Attach the portal of FilePreviewDialogComponent to portalHost
     this.attachDialogToOverlay(overlayRef, componentOrTemplateRef, dialogRef, dialogConfig)
 
-    // Close overlay when click backdrop
+    // Close dialog when click backdrop or navigate
     overlayRef.backdropClick().subscribe(_ => dialogRef.close())
+    this.router.events
+      .pipe(
+        filter((event: Event) => event instanceof NavigationStart),
+        tap(_ => dialogRef.close())
+      )
+      .subscribe()
 
     return dialogRef
   }

@@ -1,0 +1,12 @@
+<div class="overlay-content"
+     [@slideContent]="animationState"
+     (@slideContent.start)="onAnimationStart($event)"
+     (@slideContent.done)="onAnimationDone($event)">
+  <div class="spinner-wrapper"
+       *ngIf="loading">
+    <mat-spinner></mat-spinner>
+  </div>
+  <img [@fade]="loading ? 'fadeOut' : 'fadeIn'"
+       [src]="data?.file?.url"
+       (load)="onLoad($event)" />
+</div>

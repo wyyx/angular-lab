@@ -16,11 +16,13 @@ import { FlatpickrModule } from 'angularx-flatpickr'
 import { CalendarModule, DateAdapter } from 'angular-calendar'
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns'
 import { ContextMenuModule } from 'ngx-contextmenu'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     SharedModule,
     FormLabModule,
     CoreLabModule,
