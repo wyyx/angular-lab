@@ -7,7 +7,8 @@ import { FilePreviewDialogService } from './overlay/file-preview-dialog.service'
 import { FilePreviewDialogComponent } from './overlay/file-preview-dialog/file-preview-dialog.component'
 import { OverlayComponent } from './overlay/overlay.component'
 import { FocusRemoverDirective } from './overlay/focus-remover.directive';
-import { FilePreviewDialogToolbarComponent } from './overlay/file-preview-dialog-toolbar/file-preview-dialog-toolbar.component'
+import { FilePreviewDialogToolbarComponent } from './overlay/file-preview-dialog-toolbar/file-preview-dialog-toolbar.component';
+import { LayoutComponent } from './layout/layout.component'
 
 @NgModule({
   imports: [CommonModule, CdkLabRoutingModule, SharedModule],
@@ -16,7 +17,8 @@ import { FilePreviewDialogToolbarComponent } from './overlay/file-preview-dialog
     FilePreviewDialogComponent,
     OverlayComponent,
     FocusRemoverDirective,
-    FilePreviewDialogToolbarComponent
+    FilePreviewDialogToolbarComponent,
+    LayoutComponent
   ],
   providers: [FilePreviewDialogService],
   entryComponents: [FilePreviewDialogComponent]

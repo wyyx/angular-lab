@@ -14,6 +14,7 @@ import {
   MatIconModule,
   MatProgressSpinnerModule
 } from '@angular/material'
+import { LayoutModule } from '@angular/cdk/layout'
 
 @NgModule({
   exports: [
@@ -29,7 +30,8 @@ import {
     MatToolbarModule,
     MatListModule,
     MatIconModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    LayoutModule
   ]
 })
 export class MaterialCollectionModule {}
